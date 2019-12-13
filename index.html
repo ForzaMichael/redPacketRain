@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>红包雨</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div id="redPacketWarp"></div>
+    </div>
+    <div id="startGameBtn">startGame</div>
+    <div id="showTime">得分：0</div>
+  </body>
+  <script src="index.js"></script>
+  <script type="text/javascript">
+    window.onload = () => {
+      let $startGameBtn = document.getElementById("startGameBtn");
+      let $showTime = document.getElementById("showTime");
+      let gameRedpacket = new GameRedpacket({
+        el: "redPacketWarp",
+        timeout: 40000,
+        gameScore: date => {
+          $showTime.innerHTML = `得分：${date}`;
+        },
+        gameTimesOut: date => {
+          console.log(date);
+          alert("时间到啦,您的最后得分为:" + date);
+        }
+      });
+      $startGameBtn.onclick = function() {
+        gameRedpacket.startGame();
+      };
+    };
+  </script>
+</html>
