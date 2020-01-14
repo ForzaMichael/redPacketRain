@@ -7,7 +7,7 @@ class GameRedpacket {
     gameScore,
     gameTimesOut
   }) {
-    this.redPacketWarp = document.getElementById(el); //测试branch
+    this.redPacketWarp = document.getElementById(el); 
     if (!el || !this.redPacketWarp) return false; //没有框架直接return了
     this.score = 0; //得分
     this.callback_gameScore = gameScore; //得分的回调，返回分数
